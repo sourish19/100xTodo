@@ -7,7 +7,7 @@ const Logo = ({ height, width }) => {
         width={width}
         height={height}
         role="img"
-        aria-labelledby="title desc"
+        aria-labelledby="logo"
       >
         <title id="title">100xTodo Icon</title>
         <desc id="desc">
@@ -48,7 +48,9 @@ const Logo = ({ height, width }) => {
         />
       </svg>
       <div className="ml-2">
-        <h1 className="text-2xl font-semibold text-emerald-600">100xTodo</h1>
+        <h1 className="text-2xl drop-shadow-xl tracking-tight font-semibold text-[#1a846d] font-inter">
+          100xTodo
+        </h1>
       </div>
     </div>
   );
