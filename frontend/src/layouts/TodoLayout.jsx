@@ -1,9 +1,9 @@
-import { Navbar, UserProfile } from "../components";
+import { Navbar, UserProfile } from '../components'
 const TodoLayout = ({ children }) => {
   return (
-    <div className="relative min-h-screen bg-white">
+    <div className="relative min-h-screen bg-white w-full">
       <div
-        className="absolute inset-0 z-0 pointer-events-none"
+        className="pointer-events-none absolute inset-0 z-0"
         style={{
           backgroundImage: `
         repeating-linear-gradient(0deg, transparent, transparent 20px, rgba(75, 85, 99, 0.08) 20px, rgba(75, 85, 99, 0.08) 21px),
@@ -13,21 +13,22 @@ const TodoLayout = ({ children }) => {
       `,
         }}
       />
-      <div className="relative z-10">
-        <div className="w-full h-30">
-          <div className="fixed inset-x-0 top-0">
-            <div className="relative mx-auto max-w-150 h-20">
-              <div className="flex items-center justify-between bg-emerald-100 w-full py-3 px-4 absolute top-6 rounded-2xl shadow-input">
+
+        <div className="h-30 w-full items-center">
+          <div className="fixed z-10 inset-x-0 top-0">
+            <div className="relative  mx-auto h-20 max-w-150">
+              <div className="shadow-input absolute top-6 flex w-90 items-center justify-between rounded-2xl bg-emerald-100 px-4 py-3 mx- sm:w-150 ">
                 <Navbar />
                 <UserProfile />
               </div>
             </div>
           </div>
         </div>
-        <div className="flex mt-5 mx-auto max-w-250 ">{children}</div>
+        <div className="relative mt-5 flex max-w-250 flex-col-reverse items-center justify-center px-5 sm:items-baseline sm:justify-start md:flex-row">
+          {children}
+        </div>
       </div>
-    </div>
-  );
-};
+  )
+}
 
-export default TodoLayout;
+export default TodoLayout

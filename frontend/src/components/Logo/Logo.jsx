@@ -1,6 +1,6 @@
 const Logo = ({ height, width }) => {
   return (
-    <div className="flex  items-center">
+    <div className="flex items-center">
       <svg
         xmlns="http://www.w3.org/2000/svg"
         viewBox="0 0 100 100"
@@ -48,12 +48,12 @@ const Logo = ({ height, width }) => {
         />
       </svg>
       <div className="ml-2">
-        <h1 className="text-2xl drop-shadow-xl tracking-tight font-semibold text-[#1a846d] font-inter">
+        <h1 className="font-inter text-2xl font-semibold tracking-tight text-[#1a846d] drop-shadow-xl">
           100xTodo
         </h1>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default Logo;
+export default Logo
