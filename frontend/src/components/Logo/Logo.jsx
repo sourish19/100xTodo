@@ -48,7 +48,7 @@ const Logo = ({ height, width }) => {
         />
       </svg>
       <div className="ml-2">
-        <h1 className="font-inter text-2xl font-semibold tracking-tight text-[#1a846d] drop-shadow-xl">
+        <h1 className="font-inter text-lg font-semibold tracking-tight text-[#1a846d] drop-shadow-xl sm:text-2xl">
           100xTodo
         </h1>
       </div>

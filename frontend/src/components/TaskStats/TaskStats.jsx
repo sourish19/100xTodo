@@ -8,12 +8,10 @@ function TaskStats({ fieldNumber }) {
           return (
             <div
               key={index}
-              className={`flex h-30 w-45 flex-col rounded-2xl ${val.color} shadow-input font-inter items-center justify-center lg:w-60`}
+              className={`flex h-25 w-45 flex-col rounded-2xl ${val.color} shadow-input font-montserrat items-center justify-center lg:w-50`}
             >
-              <div className="pt-2 text-2xl font-semibold lg:text-3xl">0</div>
-              <div className="px-1 pt-2 text-xl font-semibold lg:text-3xl">
-                {val.name}
-              </div>
+              <div className="pt-2 text-2xl font-semibold">0</div>
+              <div className="px-1 pt-2 text-xl font-semibold">{val.name}</div>
             </div>
           )
         })}

@@ -3,7 +3,7 @@ import { Logo } from '../index'
 const Navbar = () => {
   return (
     <div>
-      <Logo height={'38px'} width={'38px'} />
+      <Logo height={'35px'} width={'35px'} />
     </div>
   )
 }
