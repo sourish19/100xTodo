@@ -25,13 +25,10 @@ function TaskCards() {
           <div className="no-scrollbar h-50 overflow-auto pt-3 text-sm text-gray-700">
             Description Lorem ipsum dolor sit amet, consectetur
           </div>
-          {/* Buttons */}
-          <div className="mt-auto flex justify-around gap-2 pb-3">
-            <Button className="w-1/2 bg-teal-400 font-bold whitespace-normal hover:bg-teal-500">
+          {/* Button */}
+          <div className="mt-auto text-center pb-3">
+            <Button className=" bg-teal-400 font-bold whitespace-normal hover:bg-teal-500">
               Mark as Completed
-            </Button>
-            <Button className="w-1/2 bg-rose-400 font-bold whitespace-normal hover:bg-rose-500">
-              Mark as Failed
             </Button>
           </div>
         </div>

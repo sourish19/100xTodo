@@ -18,7 +18,10 @@ export default function DropMenu({ inputPriority, setInputPriority }) {
       <DropdownMenuContent className="w-56">
         <DropdownMenuLabel>Set Priority</DropdownMenuLabel>
         <DropdownMenuSeparator />
-        <DropdownMenuRadioGroup value={inputPriority} onValueChange={setInputPriority}>
+        <DropdownMenuRadioGroup
+          value={inputPriority}
+          onValueChange={setInputPriority}
+        >
           <DropdownMenuRadioItem value="High">High</DropdownMenuRadioItem>
           <DropdownMenuRadioItem value="Medium">Medium</DropdownMenuRadioItem>
           <DropdownMenuRadioItem value="Low">Low</DropdownMenuRadioItem>

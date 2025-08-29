@@ -73,7 +73,10 @@ export default function AddTasks() {
           </div>
           <div className="grid gap-3">
             <Label>Task Priority</Label>
-            <DropMenu inputPriority={inputPriority} setInputPriority={setInputPriority} />
+            <DropMenu
+              inputPriority={inputPriority}
+              setInputPriority={setInputPriority}
+            />
           </div>
 
           <DialogFooter>
