@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { Plus } from 'lucide-react'
+import { Plus, Pencil } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import {
   Dialog,
@@ -14,11 +14,15 @@ import { Input } from '@/components/ui/input'
 import { Label } from '@/components/ui/label'
 import DropMenu from './DropMenu'
 
-export default function AddTasks() {
+import { useTodo } from '@/context'
+
+export default function TaskForm({ mode, dialogTitle, dialogDesc, id = null }) {
   const [open, setOpen] = useState(false)
   const [inputPriority, setInputPriority] = useState('Low')
   const [inputTaskTitle, setInputTaskTitle] = useState('Studying')
   const [inputTaskDesc, setInputTaskDesc] = useState('Start Studying...')
+
+  const { addTodo, editTodo } = useTodo()
 
   const handleSubmit = (e) => {
     e.preventDefault()
@@ -26,6 +30,15 @@ export default function AddTasks() {
 
     if (inputTaskTitle.trim() && inputTaskDesc.trim()) {
       setOpen(false)
+      mode === 'add'
+        ? addTodo({
+            id: Date.now(),
+            todoTitle: inputTaskTitle,
+            todoDesc: inputTaskDesc,
+            todoPriority: inputPriority,
+            isCompleted: false,
+          })
+        : editTodo()
       setInputTaskTitle('')
       setInputTaskDesc('')
       setInputPriority('Low')
@@ -35,20 +48,22 @@ export default function AddTasks() {
   return (
     <Dialog open={open} onOpenChange={setOpen}>
       <DialogTrigger asChild>
-        <Button
-          variant="outline"
-          className="w-40 bg-sky-500 py-5 text-lg text-sky-50 hover:bg-sky-400 hover:text-sky-50"
-        >
-          Add Tasks <Plus />
-        </Button>
+        {mode === 'add' ? (
+          <Button
+            variant="outline"
+            className="w-40 bg-sky-500 py-5 text-lg text-sky-50 hover:bg-sky-400 hover:text-sky-50"
+          >
+            Add Tasks <Plus />
+          </Button>
+        ) : (
+          <Pencil className="h-5 w-5" />
+        )}
       </DialogTrigger>
 
       <DialogContent className="sm:max-w-[425px]">
         <DialogHeader>
-          <DialogTitle>Add Tasks</DialogTitle>
-          <DialogDescription>
-            Add your tasks here. You can edit or delete them later.
-          </DialogDescription>
+          <DialogTitle>{dialogTitle}</DialogTitle>
+          <DialogDescription>{dialogDesc}</DialogDescription>
         </DialogHeader>
 
         <form onSubmit={handleSubmit} className="grid gap-4">

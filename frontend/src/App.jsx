@@ -1,7 +1,7 @@
 import { useState } from 'react'
 
 import TodoLayout from './layouts/TodoLayout'
-import { TaskStats, TaskCards, AddTasks } from './components'
+import { TaskStats, TaskCards, TaskForm } from './components'
 import { TodoContextProvider } from './context'
 
 const App = () => {
@@ -24,7 +24,7 @@ const App = () => {
       prev.filter((prevVal) => prevVal.id !== id)
     })
 
-  // Togle Complete 
+  // Togle Complete
   const togleComplete = (id) =>
     setTodos((prev) =>
       prev.map((prevVal) =>
@@ -46,7 +46,12 @@ const App = () => {
     >
       <TodoLayout>
         <div>
-          <AddTasks />
+          <TaskForm
+            mode="add"
+            dialogTitle="Add Tasks"
+            dialogDesc=" Add your tasks here. You can edit or delete them later."
+            id=""
+          />
           <TaskCards />
         </div>
         <TaskStats
