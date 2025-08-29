@@ -11,18 +11,18 @@ const App = () => {
   const addTodo = (todo) => setTodos((prev) => [...prev, todo])
 
   // Edit Todo
-  const editTodo = (id, todo) =>
-    setTodos((prev) => {
-      prev.map((prevVal) => {
-        prevVal.id === id ? todo : prevVal
-      })
-    })
+  const editTodo = (id, todo) => 
+    setTodos((prev) =>
+      prev.map((prevVal) =>
+        prevVal.id === id ? { ...prevVal, ...todo } : prevVal
+      )
+    )
 
   // Delete Todo
   const deleteTodo = (id) =>
-    setTodos((prev) => {
+    setTodos((prev) => 
       prev.filter((prevVal) => prevVal.id !== id)
-    })
+    )
 
   // Togle Complete
   const togleComplete = (id) =>

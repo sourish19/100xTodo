@@ -24,12 +24,12 @@ function TaskCards() {
                   </div>
                 </div>
                 <div className="flex items-center justify-center gap-5">
-                  <DeleteTask />
+                  <DeleteTask id={todo.id} />
                   <TaskForm
                     mode="edit"
                     dialogTitle="Edit Tasks"
                     dialogDesc="Make your changes here."
-                    id=""
+                    id={todo.id}
                   />
                 </div>
               </div>
@@ -47,7 +47,9 @@ function TaskCards() {
               </div>
             </div>
           ))
-        : null}
+        : <div className='w-100'>
+          <h1 className='text-3xl font-bold my-8 tracking-tight bg-clip-text text-transparent bg-gradient-to-r from-pink-500 via-blue-600 to-purple-500 text-shadow-lg font-poppins w-full'>No Tasks Found...</h1>
+        </div> }
     </div>
   )
 }

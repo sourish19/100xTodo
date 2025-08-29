@@ -1,3 +1,4 @@
+import { useState } from 'react'
 import { Trash } from 'lucide-react'
 import {
   AlertDialog,
@@ -11,7 +12,16 @@ import {
   AlertDialogTrigger,
 } from '@/components/ui/alert-dialog'
 
-export default function DeleteTask() {
+import { useTodo } from '@/context'
+
+export default function DeleteTask({ id }) {
+  const [confirmDelete, setConfirmDelete] = useState(false)
+  const { deleteTodo } = useTodo()
+
+  const handleClick = () => {
+    deleteTodo(id)
+  }
+
   return (
     <AlertDialog>
       <AlertDialogTrigger asChild>
@@ -26,7 +36,7 @@ export default function DeleteTask() {
         </AlertDialogHeader>
         <AlertDialogFooter>
           <AlertDialogCancel>Cancel</AlertDialogCancel>
-          <AlertDialogAction>Continue</AlertDialogAction>
+          <AlertDialogAction onClick={handleClick}>Continue</AlertDialogAction>
         </AlertDialogFooter>
       </AlertDialogContent>
     </AlertDialog>

@@ -38,7 +38,13 @@ export default function TaskForm({ mode, dialogTitle, dialogDesc, id = null }) {
             todoPriority: inputPriority,
             isCompleted: false,
           })
-        : editTodo()
+        : editTodo(id, {
+            id,
+            todoTitle: inputTaskTitle,
+            todoDesc: inputTaskDesc,
+            todoPriority: inputPriority,
+            isCompleted: false,
+          })
       setInputTaskTitle('')
       setInputTaskDesc('')
       setInputPriority('Low')
