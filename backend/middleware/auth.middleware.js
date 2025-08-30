@@ -15,7 +15,7 @@ const isLogedIn = async (req, res, next) => {
 
   req.user = user;
 
-  next();
+  next(req, res);
 };
 
 export default isLogedIn;

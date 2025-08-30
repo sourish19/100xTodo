@@ -3,11 +3,15 @@ import mongoose from 'mongoose';
 const todoSchema = new mongoose.Schema(
   {
     task: {
-      typeof: String,
+      type: String,
+      required: true,
+    },
+    description: {
+      type: String,
       required: true,
     },
     isCompleted: {
-      typeof: Boolean,
+      type: Boolean,
       default: false,
     },
   },

@@ -20,7 +20,7 @@ const TodoLayout = ({ children }) => {
       {/*Nav */}
       <div className="fixed inset-x-0 top-0 z-50">
         <div className="mx-auto max-w-150 px-4">
-          <div className="shadow-input mt-4 flex items-center justify-between rounded-2xl bg-emerald-100 px-4 py-3">
+          <div className="shadow-input mt-4 flex items-center justify-between rounded-2xl bg-gradient-to-r from-emerald-100 via-emerald-200 to-emerald-300 px-4 py-3">
             <Navbar />
             <UserProfile />
           </div>

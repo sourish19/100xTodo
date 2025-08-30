@@ -8,8 +8,8 @@ const cookieParser = (cookieHeader) => {
 
   const splitCookie = cookieHeader?.split(';');
 
-  if(!splitCookie) {
-    return cookieList
+  if (!splitCookie) {
+    return cookieList;
   }
 
   // Loop through the array of cookies

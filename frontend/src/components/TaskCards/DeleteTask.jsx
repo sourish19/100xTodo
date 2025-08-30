@@ -15,9 +15,7 @@ import {
 import { useTodo } from '@/context'
 
 export default function DeleteTask({ id }) {
-  const [confirmDelete, setConfirmDelete] = useState(false)
   const { deleteTodo } = useTodo()
-
   const handleClick = () => {
     deleteTodo(id)
   }
@@ -25,7 +23,7 @@ export default function DeleteTask({ id }) {
   return (
     <AlertDialog>
       <AlertDialogTrigger asChild>
-        <Trash className="h-5 w-5" />
+        <Trash className="size-5 cursor-pointer" />
       </AlertDialogTrigger>
       <AlertDialogContent>
         <AlertDialogHeader>

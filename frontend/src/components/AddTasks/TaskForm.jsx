@@ -16,17 +16,18 @@ import DropMenu from './DropMenu'
 
 import { useTodo } from '@/context'
 
-export default function TaskForm({ mode, dialogTitle, dialogDesc, id = null }) {
+import { TODO_CONFIG } from '@/constants/todoConfig'
+
+export default function TaskForm({ mode, dialogTitle, dialogDesc, id = null, completed=false }) {
   const [open, setOpen] = useState(false)
-  const [inputPriority, setInputPriority] = useState('Low')
-  const [inputTaskTitle, setInputTaskTitle] = useState('Studying')
-  const [inputTaskDesc, setInputTaskDesc] = useState('Start Studying...')
+  const [inputPriority, setInputPriority] = useState(TODO_CONFIG.FORM.DEFAULT_VALUES.PRIORITY)
+  const [inputTaskTitle, setInputTaskTitle] = useState(TODO_CONFIG.FORM.DEFAULT_VALUES.TITLE)
+  const [inputTaskDesc, setInputTaskDesc] = useState(TODO_CONFIG.FORM.DEFAULT_VALUES.DESCRIPTION)
 
   const { addTodo, editTodo } = useTodo()
 
   const handleSubmit = (e) => {
     e.preventDefault()
-    console.log('Submitted:', { inputTaskTitle, inputTaskDesc, inputPriority })
 
     if (inputTaskTitle.trim() && inputTaskDesc.trim()) {
       setOpen(false)
@@ -45,15 +46,15 @@ export default function TaskForm({ mode, dialogTitle, dialogDesc, id = null }) {
             todoPriority: inputPriority,
             isCompleted: false,
           })
-      setInputTaskTitle('')
-      setInputTaskDesc('')
-      setInputPriority('Low')
+      setInputTaskTitle(TODO_CONFIG.FORM.DEFAULT_VALUES.TITLE)
+      setInputTaskDesc(TODO_CONFIG.FORM.DEFAULT_VALUES.DESCRIPTION)
+      setInputPriority(TODO_CONFIG.FORM.DEFAULT_VALUES.PRIORITY)
     }
   }
 
   return (
     <Dialog open={open} onOpenChange={setOpen}>
-      <DialogTrigger asChild>
+      <DialogTrigger asChild >
         {mode === 'add' ? (
           <Button
             variant="outline"
@@ -62,7 +63,9 @@ export default function TaskForm({ mode, dialogTitle, dialogDesc, id = null }) {
             Add Tasks <Plus />
           </Button>
         ) : (
-          <Pencil className="h-5 w-5" />
+          completed === false && (
+            <Pencil className="size-5 cursor-pointer" />
+          ) 
         )}
       </DialogTrigger>
 
@@ -104,7 +107,6 @@ export default function TaskForm({ mode, dialogTitle, dialogDesc, id = null }) {
             <Button onClick={() => setOpen(false)} variant="outline">
               Cancel
             </Button>
-
             <Button type="submit">Add</Button>
           </DialogFooter>
         </form>
